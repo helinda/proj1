@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
   patch 'pokemons/damage:id', to: 'pokemons#damage', as: :damage 
 
+  post 'pokemons', to: 'pokemons#create'
+
+  get 'pokemons/new', to: "pokemons#new"
+
   #patch "home#index", to: "pokemons#capture", as: :capture
   #resources :pokemons, only [:id] do
   #	resources :

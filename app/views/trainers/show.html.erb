@@ -2,6 +2,11 @@
 <p><strong>Name:</strong> <%= @trainer.name if @trainer.name %></p>
 <p><strong>Email:</strong> <%= @trainer.email if @trainer.email %></p>
 <p><strong>Pokemon:</strong></p>
+
+<% if current_trainer.id == @trainer.id %>
+	<%= link_to "new", pokemons_new_path, :class => "button medium", :method => :get %>
+<% end %>
+
 	<% unless @trainer.pokemons.blank? %>
 	<% @trainer.pokemons.each do |pokemon| %>
 		<p><%= pokemon.name %>, Level <%= pokemon.level %>, Health <%= pokemon.health %></p>
@@ -10,4 +15,3 @@
 	<% else %>
 		<p><%= @trainer.name %> has no Pokemon. Go and catch 'em all!</p> 
 	<% end %>
-
